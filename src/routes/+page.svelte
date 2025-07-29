@@ -1,33 +1,17 @@
 <script lang="ts">
 	import TgsSticker from '$lib/components/TgsSticker.svelte';
 	import { onMount } from 'svelte';
+	import stickersList from '$lib/stickers-list.json';
 
-	let stickerFiles: string[] = [];
+	let stickerFiles: string[] = $state(stickersList);
 	let selectedSticker = $state('');
-	let loading = $state(true);
+	let loading = $state(false);
 	let showTooltip = $state(true);
 
-	async function loadStickersList() {
-		try {
-			const response = await fetch('/api/stickers');
-			if (response.ok) {
-				const stickers = await response.json();
-				stickerFiles = stickers;
-				if (stickers.length > 0) {
-					selectedSticker = stickers[0];
-				}
-			} else {
-				console.error('Failed to load stickers list');
-			}
-		} catch (error) {
-			console.error('Error loading stickers:', error);
-		} finally {
-			loading = false;
-		}
-	}
-
 	onMount(async () => {
-		await loadStickersList();
+		if (stickerFiles.length > 0) {
+			selectedSticker = stickerFiles[0];
+		}
 		
 		if (typeof window !== 'undefined') {
 			document.documentElement.classList.add('dark');
