@@ -1,6 +1,7 @@
 <script>
 	import { onMount, onDestroy } from 'svelte';
 	import { browser } from '$app/environment';
+	import { base } from '$app/paths';
 
 	export let src;
 	export let autoplay = true;
@@ -28,7 +29,7 @@
 			// @ts-ignore
 			if (!window.RLottie) {
 				const tgsScript = document.createElement('script');
-				tgsScript.src = '/js/tgsticker.js';
+				tgsScript.src = `${base}/js/tgsticker.js`;
 				tgsScript.async = false;
 				
 				await new Promise((resolve, reject) => {
@@ -40,7 +41,7 @@
 
 			if (!customElements.get('tgs-player')) {
 				const playerScript = document.createElement('script');
-				playerScript.src = '/js/tgs-player.js';
+				playerScript.src = `${base}/js/tgs-player.js`;
 				playerScript.async = false;
 				
 				await new Promise((resolve, reject) => {

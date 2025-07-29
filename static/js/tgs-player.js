@@ -11,7 +11,7 @@ class TgsPlayer extends HTMLElement {
 	async _loadTgSticker() {
 		if (!window.RLottie) {
 			const script = document.createElement('script');
-			script.src = '/js/tgsticker.js';
+			script.src = './tgsticker.js';
 			script.async = false;
 			await new Promise((resolve) => {
 				script.onload = resolve;
