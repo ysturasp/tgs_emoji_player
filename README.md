@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./public/cloud.gif" alt="TGS Player Logo" width="250" style="border-radius: 20%">
+  <img src="https://ysturasp.netlify.app/images/cat.png" alt="ystuRASP Logo" width="120" height="120" style="border-radius: 20%">
   
   # 🎭 TGS Player Web Component
   
